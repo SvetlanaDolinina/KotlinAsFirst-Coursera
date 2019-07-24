@@ -2,6 +2,7 @@
 
 package lesson1.task1
 
+import lesson2.task1.ageDescription
 import kotlin.math.sqrt
 
 /**
@@ -49,8 +50,8 @@ fun quadraticRootProduct(a: Double, b: Double, c: Double): Double {
  * Пример главной функции
  */
 fun main(args: Array<String>) {
-    val length = trackLength(3.0, 0.0, 0.0, 4.0)
-    println("length= $length")
+
+    println(ageDescription(12))
 
 }
 

@@ -1,4 +1,5 @@
 @file:Suppress("UNUSED_PARAMETER")
+
 package lesson2.task1
 
 import lesson1.task1.discriminant
@@ -62,7 +63,24 @@ fun minBiRoot(a: Double, b: Double, c: Double): Double {
  * Мой возраст. Для заданного 0 < n < 200, рассматриваемого как возраст человека,
  * вернуть строку вида: «21 год», «32 года», «12 лет».
  */
-fun ageDescription(age: Int): String = TODO()
+fun ageDescription(age: Int): String {
+
+    val a = when (age) {
+        in 20..99 -> age % 10
+        in 100..110 -> age % 100 % 10
+        in 110..120 -> age - 100
+
+        in 100..200 -> age % 100 % 10
+        else -> age
+    }
+    val c = when (a) {
+        1 -> "год"
+        in 2..4 -> "года"
+
+        else -> "лет"
+    }
+    return "$age $c"
+}
 
 /**
  * Простая
@@ -74,6 +92,7 @@ fun ageDescription(age: Int): String = TODO()
 fun timeForHalfWay(t1: Double, v1: Double,
                    t2: Double, v2: Double,
                    t3: Double, v3: Double): Double = TODO()
+
 
 /**
  * Простая
@@ -94,7 +113,7 @@ fun whichRookThreatens(kingX: Int, kingY: Int,
  * На шахматной доске стоят черный король и белые ладья и слон
  * (ладья бьет по горизонтали и вертикали, слон — по диагоналям).
  * Проверить, есть ли угроза королю и если есть, то от кого именно.
- * Вернуть 0, если угрозы нет, 1, если угроза только от ладьи, 2, если только от слона,
+ * Вернуть 0, если угрозы нет, 1, если угроза только от // ... и ничего больше не делатьладьи, 2, если только от слона,
  * и 3, если угроза есть и от ладьи и от слона.
  * Считать, что ладья и слон не могут загораживать друг друга.
  */
@@ -120,4 +139,20 @@ fun triangleKind(a: Double, b: Double, c: Double): Int = TODO()
  * Найти длину пересечения отрезков AB и CD.
  * Если пересечения нет, вернуть -1.
  */
-fun segmentLength(a: Int, b: Int, c: Int, d: Int): Int = TODO()
+fun segmentLength(a: Int, b: Int, c: Int, d: Int): Int {
+    val segmentLength: Int = 0
+    if ((a <= c) && (c < b) && (b <= d))
+        return b - c
+    else if ((c <= a) && (a < d) && (d <= b))
+        return d - a
+    else if ((a <= c) && (d <= b))
+        return d - c
+    else if ((c <= a) && (b <= d))
+        return b - a
+    else
+        if ((a == d) || (b == c))
+            return 0
+        else return -1
+}
+
+
